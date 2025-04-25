@@ -41,7 +41,10 @@ namespace DiscordPollCompsV2Bug.Modules.SlashCommands
 
             try
             {
-                await message.ModifyAsync(x => x.Components = [ container ]);
+                message = await ModifyFollowupAsync(
+                    message.Id,
+                    x => x.Components = [ container ]
+                );
             }
 
             catch (Exception)
